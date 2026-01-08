@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 💖</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe6f0, #ffd1dc);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Floating hearts */
+.hearts span {
+  position: fixed;
+  bottom: -30px;
+  font-size: 22px;
+  opacity: 0.6;
+  animation: floatHeart 14s linear infinite;
+}
+
+@keyframes floatHeart {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-120vh) scale(1.2); }
+}
+
+/* Card */
+.card {
+  width: 90%;
+  max-width: 380px;
+  margin: 60px auto;
+  background: rgba(255,255,255,0.92);
+  border-radius: 26px;
+  padding: 22px;
+  box-shadow: 0 10px 40px rgba(255,77,109,0.35);
+  text-align: center;
+}
+
+/* Swipe gallery */
+.gallery {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+  scroll-behavior: smooth;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery img {
+  flex: 0 0 75%;
+  height: 220px;
+  border-radius: 20px;
+  object-fit: contain;              /* face safe */
+  object-position: center top;
+  background: #fff;
+  scroll-snap-align: center;
+  box-shadow: 0 8px 22px rgba(255,77,109,0.3);
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Text */
+.name {
+  font-size: 1.9em;
+  color: #ff4d6d;
+  margin-bottom: 12px;
+}
+
+.message {
+  background: #ffe6f0;
+  padding: 18px;
+  border-radius: 18px;
+  font-size: 1.05em;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.footer {
+  margin-top: 14px;
+  font-size: 0.85em;
+  color: #ff4d6d;
+  text-align: right;
+}
+</style>
+</head>
+
+<body>
+
+<!-- floating hearts -->
+<div class="hearts">
+  <span style="left:10%; animation-delay:0s;">💖</span>
+  <span style="left:30%; animation-delay:3s;">💞</span>
+  <span style="left:50%; animation-delay:6s;">❤️</span>
+  <span style="left:70%; animation-delay:1s;">💗</span>
+  <span style="left:90%; animation-delay:4s;">💖</span>
+</div>
+
+<div class="card">
+
+  <!-- auto swipe gallery -->
+  <div class="gallery" id="gallery">
+    <img src="pfp1.jpeg" alt="pfp1">
+    <img src="pfp2.jpeg" alt="pfp2">
+    <img src="pfp3.jpeg" alt="pfp3">
+    <img src="pfp4.jpeg" alt="pfp4">
+  </div>
+
+  <div class="name">Happy Birthday Yash 💖</div>
+
+  <div class="message">
+    Maii jada express nhii kr patii but<br>
+    itna tohh jrur janti huu that<br>
+    you aree important for me.🥹🫂<br>
+    Aaj Birthday tohh tmhara haiii but<br>
+    ye din mere liye v special.💕<br>
+    haa phle see tohh aisa kuch special nhii tha ye din lekin<br>
+    ab hr pal yee special rhega 🫠 or<br>
+    tmhare liye ye moment special rhega.💌🥺<br>
+    I wish you all the happiness in the world.💞💫<br>
+    I wish ki tumhari life ki har ek wish poori ho ✨<br>
+    hmesa smile krtee rhooo, bht pyaare lgte hoo 🥹😍😊<br>
+    Aur sabse important,<br>
+    <b>hamesha mere saath raho</b> 🫂💞.<br>
+    Happy Birthday! 🥳💖
+  </div>
+
+  <div class="footer">— always yours🩷</div>
+
+</div>
+
+<!-- AUTO SWIPE SCRIPT -->
+<script>
+const gallery = document.getElementById('gallery');
+let index = 0;
+
+setInterval(() => {
+  const items = gallery.children;
+  index = (index + 1) % items.length;
+  items[index].scrollIntoView({
+    behavior: 'smooth',
+    inline: 'center'
+  });
+}, 3000); // change photo every 3 seconds
+</script>
+
+</body>
+</html>
